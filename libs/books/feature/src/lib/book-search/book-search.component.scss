@@ -43,6 +43,10 @@ form {
   flex-direction: column;
   font-size: 0.8rem;
 
+  button:focus, button:hover:enabled{
+    background-color: $pink-accent;
+  }
+
   > div {
     margin-bottom: $spacing-xxs;
   }
@@ -69,4 +73,12 @@ form {
   min-height: 50vh;
   font-size: 1.5rem;
   color: $gray40;
+   
+  p {
+    color: $dark-blue;
+  }
+
 }
+
+
+
