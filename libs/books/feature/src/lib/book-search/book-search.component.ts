@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import {
   addToReadingList,
@@ -16,13 +16,14 @@ import { Book } from '@tmo/shared/models';
   styleUrls: ['./book-search.component.scss']
 })
 export class BookSearchComponent implements OnInit {
-  books: ReadingListBook[];
-
+  books$ = this.store.select(getAllBooks);
   searchForm = this.fb.group({
     term: ''
+    
   });
 
   constructor(
+
     private readonly store: Store,
     private readonly fb: FormBuilder
   ) {}
@@ -31,11 +32,8 @@ export class BookSearchComponent implements OnInit {
     return this.searchForm.value.term;
   }
 
-  ngOnInit(): void {
-    this.store.select(getAllBooks).subscribe(books => {
-      this.books = books;
-    });
-  }
+  ngOnInit(): void {}
+  
 
   formatDate(date: void | string) {
     return date
