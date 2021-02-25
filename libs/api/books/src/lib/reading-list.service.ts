@@ -23,6 +23,16 @@ export class ReadingListService {
     });
   }
 
+  async updateBookReadingState(id: any, body: any): Promise<void> {
+    this.storage.update(list => list.map(book => {
+      if(book.bookId === id) {
+        book.finished = true;
+        book.finishedDate = body.finishedDate;
+      }
+      return book;
+    })) 
+  }
+  
   async removeBook(id: string): Promise<void> {
     this.storage.update(list => {
       return list.filter(x => x.bookId !== id);
