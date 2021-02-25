@@ -13,12 +13,6 @@
   justify-content: center;
   margin-bottom: $spacing-xs;
   width: 100%;
-
-  > * {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
 }
 
 .reading-list-item--cover {
@@ -31,6 +25,18 @@
   flex: 1;
   min-width: 0;
   margin-right: $spacing-xxs;
+}
+
+.reading-list-item--buttons {
+  display: flex;
+  direction: row;
+
+  button:hover:enabled, button:disabled {
+    opacity: 0.4;
+  }
+  .green_icon {
+    color: green;
+  }
 }
 
 .reading-list-item--details--title,
